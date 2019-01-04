@@ -2,7 +2,7 @@ package com.ciffelia.volundr
 
 import android.app.Service
 import android.content.Intent
-import android.media.MediaRouter
+import androidx.mediarouter.media.MediaRouter
 import android.os.IBinder
 
 
@@ -34,5 +34,5 @@ class ForegroundService : Service() {
         }
     }
 
-    private fun shouldDisplayAlert(selectedRoute: MediaRouter.RouteInfo) = (selectedRoute.name == "Phone" && selectedRoute.volume > 0)
+    private fun shouldDisplayAlert(selectedRoute: MediaRouter.RouteInfo) = (selectedRoute.isDeviceSpeaker && selectedRoute.volume > 0)
 }
