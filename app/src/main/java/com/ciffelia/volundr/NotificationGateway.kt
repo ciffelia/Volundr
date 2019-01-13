@@ -32,7 +32,7 @@ class NotificationGateway(private val service: Service) {
         }
 
         Notification.Builder(service, alertChannelId).apply {
-            setContentTitle("Build-in speaker is unmuted")
+            setContentTitle("Built-in speaker is unmuted")
             setContentText("Tap to mute")
             setCategory(Notification.CATEGORY_STATUS)
             setSmallIcon(R.drawable.ic_volume_up_white_24dp)
@@ -62,7 +62,7 @@ class NotificationGateway(private val service: Service) {
 
     private fun createAlertChannelIfNeeded() {
         val name = "Volundr Volume Alert"
-        val description = "Notify when build-in speaker is unmuted"
+        val description = "Notify when built-in speaker is unmuted"
         createNotificationChannelIfNeeded(alertChannelId, name, description, NotificationManager.IMPORTANCE_LOW)
     }
 
