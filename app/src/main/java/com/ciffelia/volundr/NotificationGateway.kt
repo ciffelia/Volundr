@@ -31,13 +31,18 @@ class NotificationGateway(private val service: Service) {
             action = "ALERT_NOTIFICATION_CLICKED"
         }
 
+        val pendingIntent = PendingIntent.getBroadcast(service, 0 , intent, 0)
+
+        val action = Notification.Action.Builder(null, "Mute", pendingIntent).build()
+
         Notification.Builder(service, alertChannelId).apply {
             setContentTitle("Built-in speaker is unmuted")
             setContentText("Tap to mute")
             setCategory(Notification.CATEGORY_STATUS)
             setSmallIcon(R.drawable.ic_volume_up_white_24dp)
             setOngoing(true)
-            setContentIntent(PendingIntent.getBroadcast(service, 0 , intent, 0))
+            setContentIntent(pendingIntent)
+            addAction(action)
         }.build()
     }
 
