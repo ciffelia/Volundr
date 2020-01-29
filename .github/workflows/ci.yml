@@ -13,5 +13,3 @@ jobs:
         with:
           java-version: 1.8
       - run: ./gradlew build
-      - run: ./gradlew lint
-      - run: ./gradlew test
